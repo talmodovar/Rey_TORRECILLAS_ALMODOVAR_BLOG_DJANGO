@@ -1,0 +1,21 @@
+
+{% extends 'blog/base.html' %}
+
+{% block title %}Liste des articles{% endblock %}
+
+{% block content %}
+<h2>Liste des articles de blog</h2>
+
+<ul>
+    {% for post in posts %}
+        <li>
+            <h3><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h3>
+            <p>{{ post.content|slice:":100" }}...</p>  <!-- Affiche un extrait du contenu -->
+            <a href="{% url 'edit_post' post.id %}">Éditer</a> |
+            <a href="{% url 'delete_post' post.id %}">Supprimer</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'create_post' %}">Créer un nouvel article</a>
+{% endblock %}

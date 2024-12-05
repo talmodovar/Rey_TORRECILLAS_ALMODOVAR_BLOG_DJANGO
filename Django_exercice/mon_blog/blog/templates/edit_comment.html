@@ -1,0 +1,16 @@
+<!-- blog/templates/blog/edit_comment.html -->
+{% extends 'base.html' %}
+
+{% block title %}Modifier le Commentaire{% endblock %}
+
+{% block content %}
+    <h2>Modifier le commentaire</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  
+        <button type="submit">Sauvegarder les modifications</button>
+        <a href="{% url 'post_detail' id=comment.post.id %}"><button type="button">Annuler</button></a>
+    </form>
+
+{% endblock %}

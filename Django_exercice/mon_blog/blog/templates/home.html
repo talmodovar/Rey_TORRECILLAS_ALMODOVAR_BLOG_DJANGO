@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Page d'Accueil - Blog{% endblock %}
+{% load static %}
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/css_blog_home.css' %}">
+  <header class="py-4 bg-primary text-white text-center">
+    <h1>Bienvenue sur le Blog</h1>
+  </header>
+  <main class="container my-5">
+    <div class="text-end">
+      <a href="{% url 'create_post' %}" class="btn btn-primary">Créer un nouvel article</a>
+    </div>
+    
+    <h2 class="my-4">Articles récents</h2>
+<ul class="list-unstyled">
+  {% for post in posts %}
+    <li class="card mb-4">
+      <div class="card-body">
+        <h3 class="card-title"><a href="{% url 'post_detail' id=post.id %}">{{ post.title }}</a></h3>
+        <p class="card-text">{{ post.content|slice:":100" }}...</p>
+        <div class="d-flex justify-content-end">
+          <a href="{% url 'edit_post' id=post.id %}" class="btn btn-primary me-2">Éditer</a>
+          <a href="{% url 'post_detail' id=post.id %}" class="btn btn-primary me-2">Voir les détails</a>
+          <a href="{% url 'delete_post' id=post.id %}" class="btn btn-danger">Supprimer</a>
+        </div>
+      </div>
+    </li>
+  {% empty %}
+    <p>Aucun article disponible pour le moment.</p>
+  {% endfor %}
+</ul>
+</main>
+{% endblock %}

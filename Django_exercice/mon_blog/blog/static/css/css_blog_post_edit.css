@@ -1,0 +1,53 @@
+/* Base styles */
+body {
+font-family: 'San Francisco', 'Helvetica Neue', sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f5f5f5;
+}
+/* Content styles */
+.content {
+max-width: 800px;
+margin: 0 auto;
+padding: 40px 20px;
+}
+/* Post edit styles */
+.post-title {
+font-size: 36px;
+font-weight: 600;
+color: #333;
+margin-top: 0;
+}
+.post-form {
+background-color: #fff;
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+padding: 20px;
+}
+.form-actions {
+display: flex;
+justify-content: flex-end;
+margin-top: 20px;
+}
+.form-actions .btn {
+margin-left: 8px;
+}
+/* Button styles */
+.btn {
+display: inline-block;
+background-color: #0071e3;
+color: #fff;
+padding: 10px 20px;
+border-radius: 20px;
+text-decoration: none;
+transition: background-color 0.3s ease;
+}
+.btn:hover {
+background-color: #045dab;
+}
+.btn-secondary {
+background-color: #666;
+}
+.btn-secondary:hover {
+background-color: #4d4d4d;
+}

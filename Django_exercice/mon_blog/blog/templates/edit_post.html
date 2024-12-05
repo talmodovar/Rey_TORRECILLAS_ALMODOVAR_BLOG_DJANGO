@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Modifier l'article{% endblock %}
+{% load static %}
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/post_edit.css' %}">
+  <div class="content">
+    <h1 class="post-title">Modifier l'article "{{ post.title }}"</h1>
+    <form method="post" class="post-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Sauvegarder les modifications</button>
+        <a href="{% url 'post_detail' id=post.id %}" class="btn btn-secondary">Annuler</a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

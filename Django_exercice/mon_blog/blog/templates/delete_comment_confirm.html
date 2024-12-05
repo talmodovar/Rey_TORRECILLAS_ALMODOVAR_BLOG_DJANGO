@@ -1,0 +1,17 @@
+<!-- blog/templates/blog/delete_comment_confirm.html -->
+{% extends 'base.html' %}
+
+{% block title %}Confirmer la Suppression du Commentaire{% endblock %}
+
+{% block content %}
+    <h2>Êtes-vous sûr de vouloir supprimer le commentaire de "{{ comment.author }}" : "{{ comment.text|slice:":50" }}..." ?</h2>  <!-- Affiche les 50 premiers caractères du texte du commentaire -->
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Oui, Supprimer</button>
+    </form>
+    
+    <a href="{% url 'post_detail' id=comment.post.id %}">
+        <button type="button">Annuler</button>
+    </a>
+{% endblock %}
